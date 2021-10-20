@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "353143555530",
+    "project_id": "odins-food-tracker",
+    "storage_bucket": "odins-food-tracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353143555530:android:84a763381ef7f42367bb33",
+        "android_client_info": {
+          "package_name": "com.example.odins_food_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353143555530-ka094517dgomqq5qr9rjf6gsrucmv34l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJJYxsALz1XaXeSiFnGDe10kMG-OLKD5I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353143555530-ka094517dgomqq5qr9rjf6gsrucmv34l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
