@@ -20,8 +20,11 @@ class LandingPage extends StatelessWidget {
               height: 32,
             ),
             const Text(
-              'FOOD TIME!',
-              style: TextStyle(fontSize: 60, fontFamily: 'FunFont'),
+              'Food Time!',
+              style: TextStyle(
+                  fontSize: 60,
+                  fontFamily: 'FunFont',
+                  color: Colors.deepPurpleAccent),
             ),
           ],
         ),

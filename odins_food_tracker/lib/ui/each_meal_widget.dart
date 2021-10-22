@@ -20,18 +20,26 @@ class _EachMealState extends State<EachMeal> {
 
   @override
   Widget build(BuildContext context) {
-    final mealStatusReference = database.child('/meals');
+    final mealStatusReference = database;
+    // print(
+    //     'response: ${
+    //       }');
 
     return Container(
+      decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.deepPurpleAccent,
+          ),
+          borderRadius: BorderRadius.circular(4)),
       margin: const EdgeInsets.only(bottom: 8),
       child: CheckboxListTile(
-          checkColor: Colors.blue,
+          checkColor: Colors.deepPurpleAccent,
           activeColor: Colors.white,
           // tileColor: Colors.blue.shade500,
           title: Text(
             mealsString[widget.i],
             style: const TextStyle(
-              color: Colors.blue,
+              color: Colors.deepPurpleAccent,
               fontSize: 20,
               fontFamily: 'IranSans',
             ),
@@ -39,8 +47,12 @@ class _EachMealState extends State<EachMeal> {
           value: ((widget.snapshot.data! as Event)
               .snapshot
               .value[mealSpecifier(widget.i)]),
+
+          ///((widget.snapshot.data! as Event)
+          //     .snapshot
+          //     .value[mealSpecifier(widget.i)]),
           onChanged: (value) async {
-            await mealStatusReference.child(mealSpecifier(widget.i)).set(value);
+            await mealStatusReference.update({mealSpecifier(widget.i): value});
             setState(() {
               meals[widget.i] = value!;
             });

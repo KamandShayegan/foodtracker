@@ -19,7 +19,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     //root: databse - firebase child: meals ==>
-    final mealStatusReference = database.child('/meals');
+    final mealStatusReference = database;
+    mealStatusReference.set({
+      'breakfast': false,
+      'lunch': false,
+      'brunch': false,
+      'dinner': false,
+    });
 
     String persianDateTimeNow =
         DateTime.now().toPersianDateStr(showDayStr: true);
@@ -29,8 +35,9 @@ class _HomePageState extends State<HomePage> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.deepPurpleAccent,
           centerTitle: true,
-          toolbarHeight: 160,
+          toolbarHeight: 190,
           elevation: 0,
           title: AppBarContents(persianDateTimeNow: persianDateTimeNow),
         ),
@@ -52,7 +59,8 @@ class _HomePageState extends State<HomePage> {
                 builder: (builder, snapshot) {
                   Widget resultWidget = const SizedBox();
                   if (ConnectionState.waiting == snapshot.connectionState) {
-                    resultWidget = const CircularProgressIndicator();
+                    resultWidget =
+                        const Center(child: CircularProgressIndicator());
                   } else if (snapshot.hasData) {
                     return _showDataRealTime(snapshot);
                   } else if (snapshot.hasError) {

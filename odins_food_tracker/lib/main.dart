@@ -43,7 +43,7 @@ class MyStartingPage extends StatefulWidget {
 class _MyStartingPageState extends State<MyStartingPage> {
   Future<bool> _delay() async {
     await Future.delayed(
-      const Duration(milliseconds: 100),
+      const Duration(seconds: 5),
     );
     return true;
   }

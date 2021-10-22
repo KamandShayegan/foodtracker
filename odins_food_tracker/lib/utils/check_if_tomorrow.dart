@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 checkIfTomorrow() async {
   final database = FirebaseDatabase.instance.reference();
-  final mealStatusReference = database.child('/meals');
+  final mealStatusReference = database;
 
   SharedPreferences prefs = await SharedPreferences.getInstance();
   //get gregorian date:
@@ -20,9 +20,13 @@ checkIfTomorrow() async {
 //if this is the next day, then you wanna start all over, so might as well reset all data ==>
   bool isNotToday = !(saved == now);
   if (isNotToday) {
-    mealStatusReference.child('breakfast').set(false);
-    mealStatusReference.child('lunch').set(false);
-    mealStatusReference.child('brunch').set(false);
-    mealStatusReference.child('dinner').set(false);
+    mealStatusReference.child('breakfast').set({
+      'food': {
+        'breakfast': false,
+        'lunch': false,
+        'brunch': false,
+        'dinner': false
+      }
+    });
   }
 }
